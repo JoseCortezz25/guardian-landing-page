@@ -11,7 +11,7 @@ export const landingMessages = {
     description:
       'A unified TypeScript CLI for building AI-assisted code review hooks with smart caching, multi-provider fallbacks, and AGENTS.md support.',
     tabLabel: 'Local Hooks',
-    installCommand: '$ npm install @ajosecortes/guardian-cli',
+    installCommand: '$ npm install -g @ajosecortes/guardian-cli',
     configLabel: '.guardian config',
     terminalLabel: 'Local Terminal',
     supportedProviders: 'supported Providers'
@@ -60,7 +60,7 @@ export const landingMessages = {
   integration: {
     heading: 'Integrate quickly',
     description: 'Get started with the CLI running in your repository.',
-    installCommand: '$ npm i @ajosecortes/guardian-cli',
+    installCommand: '$ npm i -g @ajosecortes/guardian-cli',
     cards: {
       init: {
         title: 'Init Configuration',
