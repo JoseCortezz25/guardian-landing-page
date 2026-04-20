@@ -11,7 +11,7 @@ export const landingMessages = {
     description:
       'A unified TypeScript CLI for building AI-assisted code review hooks with smart caching, multi-provider fallbacks, and AGENTS.md support.',
     tabLabel: 'Local Hooks',
-    installCommand: '$ npm install -D guardian-cli',
+    installCommand: '$ npm install @ajosecortes/guardian-cli',
     configLabel: '.guardian config',
     terminalLabel: 'Local Terminal',
     supportedProviders: 'supported Providers'
@@ -60,25 +60,25 @@ export const landingMessages = {
   integration: {
     heading: 'Integrate quickly',
     description: 'Get started with the CLI running in your repository.',
-    installCommand: '$ npm i -D guardian-cli',
+    installCommand: '$ npm i @ajosecortes/guardian-cli',
     cards: {
       init: {
         title: 'Init Configuration',
         description:
           'Generates default .guardian and AGENTS.md rule files at the root of your project.',
-        command: 'guardian-cli init'
+        command: 'guardian init'
       },
       install: {
         title: 'Install Hook',
         description:
           'Installs the automation script into .git/hooks/pre-commit to run on every commit.',
-        command: 'guardian-cli install'
+        command: 'guardian install'
       },
       run: {
         title: 'Manual Execution',
         description:
           'Scan files manually without committing. Use --no-cache or --ci flags as needed.',
-        command: 'guardian-cli run --no-cache'
+        command: 'guardian run --no-cache'
       }
     }
   },
