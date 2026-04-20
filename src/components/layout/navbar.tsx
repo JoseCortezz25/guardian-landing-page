@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Shield } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { githubUrls, landingMessages } from '@/config/messages';
 
 const { nav } = landingMessages;

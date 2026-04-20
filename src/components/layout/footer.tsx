@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Shield } from 'lucide-react';
 import { githubUrls, landingMessages } from '@/config/messages';
 
 const { footer } = landingMessages;

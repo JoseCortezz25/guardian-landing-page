@@ -1,4 +1,3 @@
-import { FileCode } from 'lucide-react';
 import { landingMessages } from '@/config/messages';
 
 const { features } = landingMessages;
