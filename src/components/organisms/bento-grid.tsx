@@ -95,7 +95,7 @@ export function BentoGrid() {
               <div className="flex items-start gap-4">
                 <span className="mt-0.5 text-neutral-400">&gt;</span>
                 <p className="font-semibold text-black">
-                  npx guardian-cli run || exit 1
+                  npx @ajosecortes/guardian-cli run || exit 1
                 </p>
               </div>
               <div className="space-y-2 border-l-2 border-neutral-200 pl-6 text-neutral-600">
