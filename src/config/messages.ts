@@ -11,7 +11,7 @@ export const landingMessages = {
     description:
       'A unified TypeScript CLI for building AI-assisted code review hooks with smart caching, multi-provider fallbacks, and AGENTS.md support.',
     tabLabel: 'Local Hooks',
-    installCommand: '$ npm install -g @ajosecortes/guardian-cli',
+    installCommand: '$ npm install -g guardian',
     configLabel: '.guardian config',
     terminalLabel: 'Local Terminal',
     supportedProviders: 'supported Providers'
@@ -47,7 +47,7 @@ export const landingMessages = {
     cliCore: {
       title: 'CLI Core',
       description:
-        'A set of zero-config commands to initialize, run, and manage your local cache efficiently.',
+        'Commands to initialize, install, run, uninstall, and manage cache — all with zero external dependencies.',
       cta: 'View CLI Args',
       scriptsLabel: 'Available Scripts'
     },
@@ -60,7 +60,7 @@ export const landingMessages = {
   integration: {
     heading: 'Integrate quickly',
     description: 'Get started with the CLI running in your repository.',
-    installCommand: '$ npm i -g @ajosecortes/guardian-cli',
+    installCommand: '$ npm i -g guardian',
     cards: {
       init: {
         title: 'Init Configuration',
@@ -77,8 +77,8 @@ export const landingMessages = {
       run: {
         title: 'Manual Execution',
         description:
-          'Scan files manually without committing. Use --no-cache or --ci flags as needed.',
-        command: 'guardian run --no-cache'
+          'Run a review without committing. Use --all, --pr-mode, or --ci to control which files are reviewed.',
+        command: 'guardian run'
       }
     }
   },

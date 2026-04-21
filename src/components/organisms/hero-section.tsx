@@ -25,7 +25,7 @@ export function HeroSection() {
             {hero.installCommand}
           </code>
           <CopyButton
-            text="npm install -g @ajosecortes/guardian-cli"
+            text="npm install -g guardian"
             className="text-neutral-400 transition-colors hover:text-black"
           />
         </div>

@@ -63,7 +63,7 @@ export function BentoGrid() {
             {bento.cliCore.scriptsLabel}
           </p>
           <div className="flex flex-wrap gap-2">
-            {(['init', 'install', 'run', 'cache'] as const).map(script => (
+            {(['init', 'install', 'run', 'uninstall', 'cache'] as const).map(script => (
               <span
                 key={script}
                 className="flex items-center gap-1.5 rounded border border-neutral-200 bg-neutral-100 px-2.5 py-1 font-mono text-xs text-neutral-600"
