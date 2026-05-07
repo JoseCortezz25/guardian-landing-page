@@ -15,6 +15,10 @@ const configuration = docsMessages.configuration;
 const api = docsMessages.api;
 const skills = docsMessages.skills;
 const changelog = docsMessages.changelog;
+const skillInstallationExamples = Object.values(skills.installation.examples).filter(
+  (example): example is Exclude<(typeof skills.installation.examples)[keyof typeof skills.installation.examples], string> =>
+    typeof example === 'object'
+);
 
 export const docsLlmContent = {
   introduction: [
@@ -267,7 +271,7 @@ export const docsLlmContent = {
     `## ${skills.installation.title}`,
     skills.installation.description,
     bulletList(
-      Object.values(skills.installation.examples).map(
+      skillInstallationExamples.map(
         (example) => `${example.title} — ${example.description}\n${codeBlock(example.command)}`
       )
     ),
