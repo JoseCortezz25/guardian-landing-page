@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { landingMessages } from '@/config/messages';
 
 const { features } = landingMessages;
@@ -17,20 +18,20 @@ export function FeaturesIntroSection() {
 
       <div className="mt-12 flex items-center justify-center gap-[30px] text-neutral-400 md:gap-[60px]">
         <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px] [&>img]:h-full">
-            <img src="/claude-logo.svg" alt="Claude" />
+          <div className="h-[35px]">
+            <Image src="/claude-logo.svg" alt="Claude" width={111} height={35} className="h-full w-auto" />
           </div>
           Claude
         </div>
         <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px] [&>img]:h-full">
-            <img src="/gemini-logo.png" alt="" />
+          <div className="h-[35px]">
+            <Image src="/gemini-logo.png" alt="Gemini" width={35} height={35} className="h-full w-auto" />
           </div>
           Gemini
         </div>
         <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px] [&>img]:h-full">
-            <img src="/opencode-wordmark-light.svg" alt="" />
+          <div className="h-[35px]">
+            <Image src="/opencode-wordmark-light.svg" alt="OpenCode" width={127} height={35} className="h-full w-auto" />
           </div>
           OpenCode
         </div>

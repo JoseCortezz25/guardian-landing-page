@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
 import { githubUrls, landingMessages } from '@/config/messages';
@@ -10,8 +11,8 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 font-medium">
-            <div className="h-[24px] [&>img]:h-full">
-              <img src="/guardian-logo.png" alt="" />
+            <div className="h-[24px]">
+              <Image src="/guardian-logo.png" alt="Guardian" width={24} height={24} className="h-full w-auto" />
             </div>
             <span className="font-bold tracking-tight">{nav.brand}</span>
           </Link>

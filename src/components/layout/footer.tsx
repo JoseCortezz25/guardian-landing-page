@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { githubUrls, landingMessages } from '@/config/messages';
 
@@ -13,7 +14,7 @@ export function Footer() {
         <ul className="space-y-3 text-neutral-500">
           <li>
             <Link
-              href="#integration"
+              href="/#integration"
               className="transition-colors hover:text-black"
             >
               {footer.links.integration}
@@ -21,7 +22,7 @@ export function Footer() {
           </li>
           <li>
             <Link
-              href="#providers"
+              href="/#providers"
               className="transition-colors hover:text-black"
             >
               {footer.links.providers}
@@ -51,13 +52,13 @@ export function Footer() {
       </div>
 
       <div className="flex flex-col items-start justify-between text-neutral-500 md:items-end">
-        <div className="mt-4 mb-4 flex flex-col items-start gap-1 md:mt-0 md:mb-0 md:items-end">
-          <div className="flex items-center gap-1.5 font-bold text-black">
-            <div className="h-[24px] [&>img]:h-full">
-              <img src="/guardian-logo.png" alt="" />
+          <div className="mt-4 mb-4 flex flex-col items-start gap-1 md:mt-0 md:mb-0 md:items-end">
+            <div className="flex items-center gap-1.5 font-bold text-black">
+              <div className="h-[24px]">
+                <Image src="/guardian-logo.png" alt="Guardian" width={24} height={24} className="h-full w-auto" />
+              </div>
+              {footer.brand}
             </div>
-            {footer.brand}
-          </div>
           <a
             href={githubUrls.repo}
             target="_blank"
