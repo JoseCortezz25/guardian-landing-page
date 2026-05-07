@@ -17,16 +17,22 @@ export function Navbar() {
           </Link>
           <div className="hidden items-center gap-6 text-sm text-neutral-500 md:flex">
             <Link
-              href="#integration"
+              href="/#integration"
               className="transition-colors hover:text-black"
             >
               {nav.integration}
             </Link>
             <Link
-              href="#providers"
+              href="/#providers"
               className="transition-colors hover:text-black"
             >
               {nav.providers}
+            </Link>
+            <Link
+              href="/docs"
+              className="transition-colors hover:text-black"
+            >
+              {nav.docs}
             </Link>
           </div>
         </div>
