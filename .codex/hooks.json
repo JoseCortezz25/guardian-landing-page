@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/home/ajosecortes/development/projects/guardian-page/.codex/hooks/format-and-lint.mjs'",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

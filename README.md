@@ -3,7 +3,7 @@
 # Guardian
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
-![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20.11.0-339933?style=for-the-badge&logo=node.js)
+![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-339933?style=for-the-badge&logo=node.js)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
 **A TypeScript CLI that runs AI-assisted code review as a Git hook.**
@@ -28,13 +28,15 @@ It inspects staged files, builds a review prompt from your project rules, calls 
 - Support for referenced markdown rule files
 - Content-based cache to skip unchanged files
 - Parallel file reading for faster reviews
-- CLI commands for `init`, `install`, `run`, and cache management
+- CLI commands for `setup`, `init`, `install`, `run`, and cache management
 
 ---
 
 ## Installation
 
 ### Local development
+
+Requires Node.js >= 22.
 
 ```bash
 npm install
@@ -44,7 +46,7 @@ npm run build
 Run the CLI directly:
 
 ```bash
-node dist/cli.js --help
+node dist/cli.mjs --help
 ```
 
 ### Available scripts
@@ -88,9 +90,16 @@ npx guardian --help
 Inside a Git repository you want to protect:
 
 ```bash
-guardian init
-guardian install
+guardian setup
 ```
+
+`guardian setup` runs an interactive 3-step flow:
+
+1. Choose the rules file name and provider (`Claude`, `Gemini`, or `OpenCode`)
+2. Create `.guardian` and `AGENTS.md`, then choose whether to install the hook in `pre-commit` or `commit-msg`
+3. Run a preview of `guardian run` to confirm everything works
+
+If the project already has a `.guardian` file, Guardian detects it and asks whether you want to reconfigure it.
 
 This creates:
 
@@ -170,6 +179,20 @@ If those files exist, their contents are appended to the final prompt.
 ---
 
 ## Commands
+
+### `guardian setup`
+
+Runs the guided onboarding flow for a repository.
+
+- prompts for the rules file name and provider
+- creates `.guardian` and `AGENTS.md`
+- asks whether to install into `pre-commit` or `commit-msg`
+- executes a preview `guardian run` at the end
+- detects an existing `.guardian` file and offers to reconfigure it
+
+```bash
+guardian setup
+```
 
 ### `guardian init`
 

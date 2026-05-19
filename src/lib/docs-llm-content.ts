@@ -95,7 +95,7 @@ export const docsLlmContent = {
     `## ${installation.localDev.title}`,
     installation.localDev.description,
     codeBlock(
-      ['git clone https://github.com/JoseCortezz25/guardian.git', 'cd guardian', 'npm install', 'npm run build'].join('\n')
+      ['git clone https://github.com/JoseCortezz25/guardian.git', 'cd guardian', 'npm install', 'npm run build', '# Output: dist/cli.mjs (built with tsup)'].join('\n')
     ),
     `### ${installation.localDev.scripts.title}`,
     bulletList([
@@ -125,11 +125,18 @@ export const docsLlmContent = {
     `## ${quickStart.step2.title}`,
     quickStart.step2.description,
     codeBlock(quickStart.step2.verifyCommand),
-    codeBlock(quickStart.step2.initCommand),
+    codeBlock(
+      [quickStart.step2.initCommand, '> Launches the interactive setup flow and finishes with a preview run'].join('\n')
+    ),
     bulletList(Object.values(quickStart.step2.files)),
     '',
     `## ${quickStart.step3.title}`,
     quickStart.step3.description,
+    bulletList(Object.values(quickStart.step3.flow)),
+    `Tip: ${quickStart.step3.tip}`,
+    '',
+    `## ${quickStart.step4.title}`,
+    quickStart.step4.description,
     codeBlock(
       [
         '# AGENTS.md',
@@ -144,11 +151,6 @@ export const docsLlmContent = {
       ].join('\n'),
       'md'
     ),
-    `Tip: ${quickStart.step3.tip}`,
-    '',
-    `## ${quickStart.step4.title}`,
-    quickStart.step4.description,
-    codeBlock(['guardian install', '> Hook installed at .git/hooks/pre-commit'].join('\n')),
     '',
     `## ${quickStart.step5.title}`,
     quickStart.step5.description,

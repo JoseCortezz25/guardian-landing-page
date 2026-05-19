@@ -60,27 +60,18 @@ export const landingMessages = {
   },
   integration: {
     heading: 'Integrate quickly',
-    description: 'Get started with the CLI running in your repository.',
+    description: 'Get Guardian running in your repository with a single guided command.',
     installCommand: '$ npm i -g @ajosecortes/guardian-cli',
-    cards: {
-      init: {
-        title: 'Init Configuration',
-        description:
-          'Generates default .guardian and AGENTS.md rule files at the root of your project.',
-        command: 'guardian init'
-      },
-      install: {
-        title: 'Install Hook',
-        description:
-          'Installs the automation script into .git/hooks/pre-commit to run on every commit.',
-        command: 'guardian install'
-      },
-      run: {
-        title: 'Manual Execution',
-        description:
-          'Run a review without committing. Use --all, --pr-mode, or --ci to control which files are reviewed.',
-        command: 'guardian run'
-      }
+    command: 'guardian setup',
+    commandTitle: 'One command, guided onboarding',
+    commandDescription:
+      'guardian setup replaces running init + install separately. It walks you through provider selection, hook installation, and a final preview run so you can confirm everything works before your first commit.',
+    steps: {
+      choose: 'Choose the rules file name and provider: Claude, Gemini, or OpenCode.',
+      configure:
+        'Generate .guardian and AGENTS.md, then pick whether to install the hook in pre-commit or commit-msg.',
+      preview:
+        'Run a guardian run preview at the end. If .guardian already exists, Guardian detects it and asks whether you want to reconfigure.'
     }
   },
   footer: {
@@ -157,7 +148,7 @@ export const docsMessages = {
           'Content-based cache to skip unchanged files — zero latency on re-runs',
         parallel: 'Parallel file reading for faster reviews on large commits',
         cliCommands:
-          'CLI commands for init, install, run, uninstall, and cache management'
+          'CLI commands for setup, init, install, run, uninstall, and cache management'
       }
     },
     howGuardianWorks: {
@@ -189,7 +180,7 @@ export const docsMessages = {
       description:
         'Before installing Guardian, make sure your environment meets these prerequisites.',
       items: {
-        node: 'Node.js >= 18',
+        node: 'Node.js >= 22',
         git: 'A Git repository to protect',
         provider:
           'At least one supported provider CLI installed and authenticated'
@@ -249,7 +240,7 @@ export const docsMessages = {
       packageLabel: 'npm package',
       packageHrefLabel: 'Open npm package',
       requirements: {
-        node: 'Node.js 18 or newer',
+        node: 'Node.js 22 or newer',
         repository: 'A Git repository you want to protect',
         provider: 'At least one supported provider CLI installed and authenticated'
       },
@@ -264,7 +255,7 @@ export const docsMessages = {
           title: 'One-off with npx',
           description:
             'Useful when you want to try Guardian without keeping a global installation on your system.',
-          command: 'npx @ajosecortes/guardian-cli init'
+          command: 'npx @ajosecortes/guardian-cli setup'
         },
         local: {
           title: 'Project dependency',
@@ -273,14 +264,14 @@ export const docsMessages = {
           command: 'npm install -D @ajosecortes/guardian-cli'
         }
       },
-      tip: 'If your goal is the smoothest onboarding, install globally first. It gives you a stable guardian command for init, install, and manual runs.'
+      tip: 'If your goal is the smoothest onboarding, install globally first. It gives you a stable guardian command for setup, run, and future reconfiguration.'
     },
     step2: {
-      title: '2. Verify the CLI and initialize your project',
+      title: '2. Verify the CLI and run guardian setup',
       description:
-        'After installation, confirm the binary is available and then run guardian init inside your Git repository. This creates two files at the root of your project:',
+        'After installation, confirm the binary is available and then run guardian setup inside your Git repository. This interactive flow creates your configuration, installs the hook you choose, and finishes with a preview run to confirm everything is wired correctly.',
       verifyCommand: 'guardian --help',
-      initCommand: 'guardian init',
+      initCommand: 'guardian setup',
       files: {
         guardian:
           '.guardian — your project configuration (provider, patterns, cache settings)',
@@ -289,15 +280,22 @@ export const docsMessages = {
       }
     },
     step3: {
-      title: '3. Tune your review rules',
+      title: '3. Follow the guided setup flow',
       description:
-        'Open AGENTS.md and .guardian to define what the AI must enforce on every commit and which provider should execute the review. Rules are plain Markdown — no special syntax required. You can reference other files using backtick notation.',
-      tip: 'Be specific about what you want enforced. Vague rules produce inconsistent results. Reference domain-specific files like docs/api-rules.md for scoped enforcement.'
+        'guardian setup guides you through three decisions so you do not need to remember multiple commands or flags during onboarding.',
+      flow: {
+        choose: 'Choose the rules file name and provider: Claude, Gemini, or OpenCode.',
+        configure:
+          'Generate .guardian and AGENTS.md, then decide whether Guardian should hook into pre-commit or commit-msg.',
+        preview:
+          'Finish with a preview guardian run. If a .guardian file already exists, Guardian detects it and asks whether you want to reconfigure.'
+      },
+      tip: 'If Guardian detects an existing .guardian file, it switches to reconfiguration mode instead of blindly overwriting your setup.'
     },
     step4: {
-      title: '4. Install the Git hook',
+      title: '4. Tune your review rules',
       description:
-        'Install the pre-commit hook. After this step, every git commit triggers a Guardian review automatically.'
+        'Once setup finishes, open AGENTS.md and .guardian to define what the AI must enforce on every commit and which provider should execute the review. Rules are plain Markdown — no special syntax required. You can reference other files using backtick notation.'
     },
     step5: {
       title: '5. Make your first commit',
@@ -316,9 +314,9 @@ export const docsMessages = {
       title: 'On This Page',
       items: {
         step1: '1. Install from npm',
-        step2: '2. Verify and initialize',
-        step3: '3. Tune your rules',
-        step4: '4. Install the Git hook',
+        step2: '2. Verify and run setup',
+        step3: '3. Follow the guided flow',
+        step4: '4. Tune your rules',
         step5: '5. Make your first commit',
         nextSteps: 'Next Steps'
       }
@@ -347,7 +345,7 @@ export const docsMessages = {
     guardianFile: {
       title: 'The .guardian File',
       description:
-        'The .guardian file is a plain key=value dotfile at the root of your repository. Running guardian init generates a default version you can customize.'
+        'The .guardian file is a plain key=value dotfile at the root of your repository. Running guardian setup or guardian init generates a default version you can customize.'
     },
     supportedKeys: {
       title: 'Supported Configuration Keys',
@@ -484,6 +482,10 @@ export const docsMessages = {
       description:
         'These commands cover the full Guardian workflow from bootstrapping a repository to reviewing staged changes and managing cache state.',
       commands: {
+        setup: {
+          name: 'guardian setup',
+          description: 'Interactive guided setup: prompts for rules file name, provider, and hook type, then creates .guardian and AGENTS.md and runs a preview. Detects an existing .guardian and offers to reconfigure.'
+        },
         init: {
           name: 'guardian init',
           description: 'Creates the default .guardian and AGENTS.md files in the current repository.'
@@ -554,7 +556,7 @@ export const docsMessages = {
       version: '1.0.0-beta.5',
       date: 'May 4, 2026',
       summary:
-        'Latest published beta on npm. The package currently exposes the guardian binary through @ajosecortes/guardian-cli.'
+        'Introduces guardian setup, an interactive guided command that combines init and hook installation into a single flow. Build output migrated to dist/cli.mjs using tsup. Node.js minimum requirement raised to >= 22.'
     },
     releases: {
       title: 'Release Timeline',
@@ -563,7 +565,7 @@ export const docsMessages = {
           version: '1.0.0-beta.5',
           date: 'May 4, 2026',
           summary:
-            'Expanded package contents and continued the beta line with the current npm latest tag.'
+            'Added guardian setup: an interactive 3-step flow that prompts for provider, rules file name, and hook type, then creates .guardian and AGENTS.md and runs a preview. Build switched from tsc to tsup — output is now dist/cli.mjs instead of dist/cli.js. Node.js minimum bumped from >= 18 to >= 22.'
         },
         beta4: {
           version: '1.0.0-beta.4',
