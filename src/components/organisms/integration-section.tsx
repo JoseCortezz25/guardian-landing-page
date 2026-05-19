@@ -1,36 +1,12 @@
-import { Copy } from 'lucide-react';
+import { CheckCircle2, Copy } from 'lucide-react';
 import { CopyButton } from '@/components/atoms/copy-button';
 import { landingMessages } from '@/config/messages';
 
 const { integration } = landingMessages;
 
-interface IntegrationCardProps {
-  title: string;
-  description: string;
-  command: string;
-}
-
-function IntegrationCard({
-  title,
-  description,
-  command
-}: IntegrationCardProps) {
-  return (
-    <div className="flex flex-col rounded-xl border border-neutral-200 bg-white p-6 transition-all hover:border-neutral-300 hover:shadow-md">
-      <h3 className="mb-2 text-lg font-bold text-black">{title}</h3>
-      <p className="mb-6 flex-1 text-sm text-neutral-500">{description}</p>
-      <div className="flex items-center justify-between rounded border border-neutral-200 bg-neutral-50 px-3 py-2">
-        <code className="font-mono text-xs text-neutral-700">{command}</code>
-        <CopyButton
-          text={command}
-          className="cursor-pointer text-neutral-400 transition-colors hover:text-black"
-        />
-      </div>
-    </div>
-  );
-}
-
 export function IntegrationSection() {
+  const steps = Object.values(integration.steps);
+
   return (
     <section
       id="integration"
@@ -51,22 +27,48 @@ export function IntegrationSection() {
         </div>
       </div>
 
-      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
-        <IntegrationCard
-          title={integration.cards.init.title}
-          description={integration.cards.init.description}
-          command={integration.cards.init.command}
-        />
-        <IntegrationCard
-          title={integration.cards.install.title}
-          description={integration.cards.install.description}
-          command={integration.cards.install.command}
-        />
-        <IntegrationCard
-          title={integration.cards.run.title}
-          description={integration.cards.run.description}
-          command={integration.cards.run.command}
-        />
+      <div className="w-full overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="border-b border-neutral-200 bg-neutral-50/70 px-6 py-6 sm:px-8">
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-2xl text-left">
+              <p className="text-[11px] font-semibold tracking-[0.22em] text-neutral-400 uppercase">
+                Quick setup
+              </p>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight text-black">
+                {integration.commandTitle}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-neutral-600">
+                {integration.commandDescription}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between gap-3 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm shadow-sm md:min-w-[260px]">
+              <code className="font-mono text-neutral-700">
+                {integration.command}
+              </code>
+              <CopyButton
+                text={integration.command}
+                className="cursor-pointer text-neutral-400 transition-colors hover:text-black"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-0 md:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={step}
+              className="border-neutral-200 p-6 text-left last:border-r-0 md:border-r"
+            >
+              <div className="mb-4 flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-xs font-semibold text-neutral-700">
+                  0{index + 1}
+                </span>
+              </div>
+              <p className="text-sm leading-7 text-neutral-600">{step}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 
 const { quickStart } = docsMessages;
 const quickStartMethods = Object.values(quickStart.step1.methods);
+const quickStartFlowSteps = Object.values(quickStart.step3.flow);
 
 export default function QuickStartPage() {
   return (
@@ -166,6 +167,9 @@ export default function QuickStartPage() {
               <span className="text-neutral-400">$ </span>
               {quickStart.step2.initCommand}
             </p>
+            <p className="mt-2 text-neutral-500">
+              {'>'} Launches the interactive setup flow and finishes with a preview run
+            </p>
           </div>
           <ul className="space-y-3 mt-4">
             {Object.values(quickStart.step2.files).map((file, index) => (
@@ -193,6 +197,35 @@ export default function QuickStartPage() {
             {quickStart.step3.description}
           </p>
 
+          <div className="grid gap-4 md:grid-cols-3 my-6">
+            {quickStartFlowSteps.map((step, index) => (
+              <div
+                key={step}
+                className="rounded-2xl border border-neutral-200 bg-neutral-50 px-5 py-5 shadow-sm"
+              >
+                <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
+                  Step 0{index + 1}
+                </p>
+                <p className="mt-3 text-[14px] leading-[1.75] text-neutral-700">{step}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[14px] text-neutral-600 leading-[1.7] pl-4 border-l-2 border-blue-200 py-3 pr-4 rounded-r-lg bg-blue-50">
+            <span className="font-semibold text-blue-900">Tip: </span>
+            {quickStart.step3.tip}
+          </p>
+
+          {/* Step 4 */}
+          <h2
+            className="text-[24px] font-bold tracking-tight text-neutral-950 mt-14 mb-5"
+            id="step-4"
+          >
+            {quickStart.step4.title}
+          </h2>
+          <p className="text-neutral-600 text-[15px] sm:text-[16px] leading-[1.7] mb-6">
+            {quickStart.step4.description}
+          </p>
           <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-6 py-5 font-mono text-[13.5px] overflow-x-auto text-neutral-800 my-6 shadow-sm">
             <p className="mb-2">
               <span className="text-neutral-400"># AGENTS.md</span>
@@ -211,31 +244,6 @@ export default function QuickStartPage() {
             </p>
             <p className="text-neutral-700 mt-2">- No use of the <code className="text-amber-700">any</code> type. Use <code className="text-amber-700">unknown</code> instead.</p>
             <p className="text-neutral-700">- All async functions must handle their errors explicitly.</p>
-          </div>
-
-          <p className="text-[14px] text-neutral-600 leading-[1.7] pl-4 border-l-2 border-blue-200 py-3 pr-4 rounded-r-lg bg-blue-50">
-            <span className="font-semibold text-blue-900">Tip: </span>
-            {quickStart.step3.tip}
-          </p>
-
-          {/* Step 4 */}
-          <h2
-            className="text-[24px] font-bold tracking-tight text-neutral-950 mt-14 mb-5"
-            id="step-4"
-          >
-            {quickStart.step4.title}
-          </h2>
-          <p className="text-neutral-600 text-[15px] sm:text-[16px] leading-[1.7] mb-4">
-            {quickStart.step4.description}
-          </p>
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-6 py-5 font-mono text-[13.5px] overflow-x-auto text-neutral-800 my-6 shadow-sm">
-            <p>
-              <span className="text-neutral-400">$ </span>
-              guardian install
-            </p>
-            <p className="mt-2 text-neutral-500">
-              {'>'} Hook installed at .git/hooks/pre-commit
-            </p>
           </div>
 
           {/* Step 5 */}
