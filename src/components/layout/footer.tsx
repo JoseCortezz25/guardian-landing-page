@@ -6,7 +6,7 @@ const { footer } = landingMessages;
 
 export function Footer() {
   return (
-    <footer className="mx-auto flex w-full max-w-7xl flex-col justify-between gap-8 px-4 py-16 text-sm sm:px-6 md:flex-row lg:px-8">
+    <footer className="border-t border-neutral-200 mx-auto flex w-full max-w-7xl flex-col justify-between gap-8 px-4 py-16 text-sm sm:px-6 md:flex-row lg:px-8">
       <div className="space-y-4">
         <h4 className="text-xs font-bold tracking-wider text-black uppercase">
           {footer.resourcesTitle}

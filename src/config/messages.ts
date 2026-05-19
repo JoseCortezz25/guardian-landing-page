@@ -157,7 +157,7 @@ export const docsMessages = {
           'Content-based cache to skip unchanged files — zero latency on re-runs',
         parallel: 'Parallel file reading for faster reviews on large commits',
         cliCommands:
-          'CLI commands for init, install, run, uninstall, and cache management'
+          'CLI commands for setup, init, install, run, uninstall, and cache management'
       }
     },
     howGuardianWorks: {
@@ -189,7 +189,7 @@ export const docsMessages = {
       description:
         'Before installing Guardian, make sure your environment meets these prerequisites.',
       items: {
-        node: 'Node.js >= 18',
+        node: 'Node.js >= 22',
         git: 'A Git repository to protect',
         provider:
           'At least one supported provider CLI installed and authenticated'
@@ -249,7 +249,7 @@ export const docsMessages = {
       packageLabel: 'npm package',
       packageHrefLabel: 'Open npm package',
       requirements: {
-        node: 'Node.js 18 or newer',
+        node: 'Node.js 22 or newer',
         repository: 'A Git repository you want to protect',
         provider: 'At least one supported provider CLI installed and authenticated'
       },
@@ -278,7 +278,7 @@ export const docsMessages = {
     step2: {
       title: '2. Verify the CLI and initialize your project',
       description:
-        'After installation, confirm the binary is available and then run guardian init inside your Git repository. This creates two files at the root of your project:',
+        'After installation, confirm the binary is available and then run guardian init inside your Git repository. This creates two files at the root of your project. Alternatively, run guardian setup — an interactive guided flow that combines initialization and hook installation in a single command.',
       verifyCommand: 'guardian --help',
       initCommand: 'guardian init',
       files: {
@@ -484,6 +484,10 @@ export const docsMessages = {
       description:
         'These commands cover the full Guardian workflow from bootstrapping a repository to reviewing staged changes and managing cache state.',
       commands: {
+        setup: {
+          name: 'guardian setup',
+          description: 'Interactive guided setup: prompts for rules file name, provider, and hook type, then creates .guardian and AGENTS.md and runs a preview. Detects an existing .guardian and offers to reconfigure.'
+        },
         init: {
           name: 'guardian init',
           description: 'Creates the default .guardian and AGENTS.md files in the current repository.'
@@ -554,7 +558,7 @@ export const docsMessages = {
       version: '1.0.0-beta.5',
       date: 'May 4, 2026',
       summary:
-        'Latest published beta on npm. The package currently exposes the guardian binary through @ajosecortes/guardian-cli.'
+        'Introduces guardian setup, an interactive guided command that combines init and hook installation into a single flow. Build output migrated to dist/cli.mjs using tsup. Node.js minimum requirement raised to >= 22.'
     },
     releases: {
       title: 'Release Timeline',
@@ -563,7 +567,7 @@ export const docsMessages = {
           version: '1.0.0-beta.5',
           date: 'May 4, 2026',
           summary:
-            'Expanded package contents and continued the beta line with the current npm latest tag.'
+            'Added guardian setup: an interactive 3-step flow that prompts for provider, rules file name, and hook type, then creates .guardian and AGENTS.md and runs a preview. Build switched from tsc to tsup — output is now dist/cli.mjs instead of dist/cli.js. Node.js minimum bumped from >= 18 to >= 22.'
         },
         beta4: {
           version: '1.0.0-beta.4',

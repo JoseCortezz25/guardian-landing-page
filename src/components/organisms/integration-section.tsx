@@ -34,7 +34,7 @@ export function IntegrationSection() {
   return (
     <section
       id="integration"
-      className="mx-auto flex w-full max-w-5xl flex-col items-start border-b border-neutral-200 px-4 py-24 text-left sm:px-6 lg:px-8"
+      className="mx-auto flex w-full max-w-5xl flex-col items-start px-4 py-24 text-left sm:px-6 lg:px-8"
     >
       <div className="mb-12 flex w-full flex-col justify-between gap-6 md:flex-row md:items-center">
         <div>

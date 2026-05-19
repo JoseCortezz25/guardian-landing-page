@@ -95,7 +95,7 @@ export const docsLlmContent = {
     `## ${installation.localDev.title}`,
     installation.localDev.description,
     codeBlock(
-      ['git clone https://github.com/JoseCortezz25/guardian.git', 'cd guardian', 'npm install', 'npm run build'].join('\n')
+      ['git clone https://github.com/JoseCortezz25/guardian.git', 'cd guardian', 'npm install', 'npm run build', '# Output: dist/cli.mjs (built with tsup)'].join('\n')
     ),
     `### ${installation.localDev.scripts.title}`,
     bulletList([
