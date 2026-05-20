@@ -88,7 +88,8 @@ export const docsLlmContent = {
     bulletList([
       'Claude — CLI name: claude — install info: anthropic.com/claude-code',
       'Gemini — CLI name: gemini — install info: ai.google.dev/gemini-api/docs',
-      'OpenCode — CLI name: opencode — install info: opencode.ai'
+      'OpenCode — CLI name: opencode — install info: opencode.ai',
+      'Codex — CLI name: codex — install info: developers.openai.com/codex/quickstart'
     ]),
     installation.providerCLIs.note,
     '',
@@ -219,6 +220,7 @@ export const docsLlmContent = {
       'PROVIDER="claude"',
       'PROVIDER="gemini"',
       'PROVIDER="opencode"',
+      'PROVIDER="codex"',
       'PROVIDER="opencode:anthropic/claude-opus-4"'
     ])
   ].join('\n'),

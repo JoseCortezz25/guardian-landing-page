@@ -118,6 +118,13 @@ export default function InstallationPage() {
                   <td className="px-5 py-3 font-mono text-neutral-600 text-[13px]">opencode</td>
                   <td className="px-5 py-3 font-mono text-neutral-500 text-[13px]">See opencode.ai</td>
                 </tr>
+                <tr className="border-t border-neutral-100">
+                  <td className="px-5 py-3 text-neutral-800 font-medium">Codex</td>
+                  <td className="px-5 py-3 font-mono text-neutral-600 text-[13px]">codex</td>
+                  <td className="px-5 py-3 font-mono text-neutral-500 text-[13px]">
+                    See developers.openai.com/codex/quickstart
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
