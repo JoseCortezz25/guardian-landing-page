@@ -1,0 +1,7 @@
+PROVIDER="claude"
+FILE_PATTERNS="*.ts,*.tsx,*.js,*.jsx"
+EXCLUDE_PATTERNS="*.test.ts,*.spec.ts,*.d.ts,*.stories.tsx"
+RULES_FILE="AGENTS.md"
+STRICT_MODE="false"
+TIMEOUT="300"
+CACHE="true"
