@@ -144,6 +144,7 @@ export default function ConfigurationPage() {
             <p>PROVIDER=&quot;claude&quot;</p>
             <p>PROVIDER=&quot;gemini&quot;</p>
             <p>PROVIDER=&quot;opencode&quot;</p>
+            <p>PROVIDER=&quot;codex&quot;</p>
             <p>PROVIDER=&quot;opencode:anthropic/claude-opus-4&quot;</p>
           </div>
 

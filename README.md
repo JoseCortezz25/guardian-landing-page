@@ -148,6 +148,7 @@ CACHE="true"
 PROVIDER="claude"
 PROVIDER="gemini"
 PROVIDER="opencode"
+PROVIDER="codex"
 PROVIDER="opencode:anthropic/claude-opus-4"
 ```
 
@@ -304,6 +305,7 @@ Examples:
 - `claude`
 - `gemini`
 - `opencode`
+- `codex`
 
 ---
 

@@ -3,6 +3,37 @@ import { landingMessages } from '@/config/messages';
 
 const { features } = landingMessages;
 
+const providerLogos = [
+  {
+    name: 'Claude',
+    src: '/claude-logo.svg',
+    alt: 'Claude',
+    width: 111,
+    height: 35
+  },
+  {
+    name: 'Gemini',
+    src: '/gemini-logo.png',
+    alt: 'Gemini',
+    width: 35,
+    height: 35
+  },
+  {
+    name: 'OpenCode',
+    src: '/opencode-wordmark-light.svg',
+    alt: 'OpenCode',
+    width: 127,
+    height: 35
+  },
+  {
+    name: 'Codex',
+    src: '/codex-color.svg',
+    alt: 'OpenAI Codex',
+    width: 35,
+    height: 35
+  }
+] as const;
+
 export function FeaturesIntroSection() {
   return (
     <section
@@ -16,25 +47,24 @@ export function FeaturesIntroSection() {
         {features.description}
       </p>
 
-      <div className="mt-12 flex items-center justify-center gap-[30px] text-neutral-400 md:gap-[60px]">
-        <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px]">
-            <Image src="/claude-logo.svg" alt="Claude" width={111} height={35} className="h-full w-auto" />
+      <div className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+        {providerLogos.map(provider => (
+          <div
+            key={provider.name}
+            className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800"
+          >
+            <div className="flex h-[35px] items-center justify-center">
+              <Image
+                src={provider.src}
+                alt={provider.alt}
+                width={provider.width}
+                height={provider.height}
+                className="h-full w-auto"
+              />
+            </div>
+            {provider.name}
           </div>
-          Claude
-        </div>
-        <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px]">
-            <Image src="/gemini-logo.png" alt="Gemini" width={35} height={35} className="h-full w-auto" />
-          </div>
-          Gemini
-        </div>
-        <div className="text-md flex flex-col items-center gap-1.5 font-semibold tracking-tight text-neutral-800">
-          <div className="h-[35px]">
-            <Image src="/opencode-wordmark-light.svg" alt="OpenCode" width={127} height={35} className="h-full w-auto" />
-          </div>
-          OpenCode
-        </div>
+        ))}
       </div>
     </section>
   );
