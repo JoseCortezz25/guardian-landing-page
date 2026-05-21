@@ -31,6 +31,13 @@ const providerLogos = [
     alt: 'OpenAI Codex',
     width: 35,
     height: 35
+  },
+  {
+    name: 'Antigravity CLI',
+    src: '/antigravity.svg',
+    alt: 'Antigravity CLI',
+    width: 37,
+    height: 35
   }
 ] as const;
 
@@ -47,7 +54,7 @@ export function FeaturesIntroSection() {
         {features.description}
       </p>
 
-      <div className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+      <div className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-8 md:grid-cols-5 md:gap-10">
         {providerLogos.map(provider => (
           <div
             key={provider.name}

@@ -125,6 +125,13 @@ export default function InstallationPage() {
                     See developers.openai.com/codex/quickstart
                   </td>
                 </tr>
+                <tr className="border-t border-neutral-100">
+                  <td className="px-5 py-3 text-neutral-800 font-medium">Antigravity</td>
+                  <td className="px-5 py-3 font-mono text-neutral-600 text-[13px]">antigravity</td>
+                  <td className="px-5 py-3 font-mono text-neutral-500 text-[13px]">
+                    See npmjs.com/package/antigravity-cli
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
