@@ -23,6 +23,8 @@ It inspects staged files, builds a review prompt from your project rules, calls 
   - Claude
   - Gemini
   - OpenCode
+  - Codex
+  - Antigravity
 - Project-level and global configuration
 - Rule loading from `AGENTS.md`
 - Support for referenced markdown rule files
@@ -95,7 +97,7 @@ guardian setup
 
 `guardian setup` runs an interactive 3-step flow:
 
-1. Choose the rules file name and provider (`Claude`, `Gemini`, or `OpenCode`)
+1. Choose the rules file name and provider (`Claude`, `Gemini`, `OpenCode`, `Codex`, or `Antigravity`)
 2. Create `.guardian` and `AGENTS.md`, then choose whether to install the hook in `pre-commit` or `commit-msg`
 3. Run a preview of `guardian run` to confirm everything works
 
@@ -149,6 +151,7 @@ PROVIDER="claude"
 PROVIDER="gemini"
 PROVIDER="opencode"
 PROVIDER="codex"
+PROVIDER="antigravity"
 PROVIDER="opencode:anthropic/claude-opus-4"
 ```
 
@@ -306,6 +309,7 @@ Examples:
 - `gemini`
 - `opencode`
 - `codex`
+- `antigravity`
 
 ---
 

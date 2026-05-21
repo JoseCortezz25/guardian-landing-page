@@ -18,20 +18,20 @@ export const landingMessages = {
     supportedProviders: 'supported Providers'
   },
   stats: {
-    providers: { value: '4+', label: 'Providers' },
+    providers: { value: '5+', label: 'Providers' },
     cacheHits: { value: '0ms', label: 'Cache Hits' },
     localHooks: { value: '100%', label: 'Local Hooks' }
   },
   features: {
     heading: 'The Git-native Review Toolkit',
     description:
-      'The open-source CLI designed to help teams enforce formatting, security, and logic rules on every commit using Claude, Gemini, OpenCode, or Codex.'
+      'The open-source CLI designed to help teams enforce formatting, security, and logic rules on every commit using Claude, Gemini, OpenCode, Codex, or Antigravity.'
   },
   bento: {
     providers: {
       title: 'Configurable providers.',
       description:
-        'Switch between Claude, Gemini, OpenCode, or Codex via a simple environment variable or dotfile configuration.',
+        'Switch between Claude, Gemini, OpenCode, Codex, or Antigravity via a simple environment variable or dotfile configuration.',
       code: 'GUARDIAN_PROVIDER="claude"'
     },
     caching: {
@@ -67,7 +67,7 @@ export const landingMessages = {
     commandDescription:
       'guardian setup replaces running init + install separately. It walks you through provider selection, hook installation, and a final preview run so you can confirm everything works before your first commit.',
     steps: {
-      choose: 'Choose the rules file name and provider: Claude, Gemini, OpenCode, or Codex.',
+      choose: 'Choose the rules file name and provider: Claude, Gemini, OpenCode, Codex, or Antigravity.',
       configure:
         'Generate .guardian and AGENTS.md, then pick whether to install the hook in pre-commit or commit-msg.',
       preview:
@@ -139,7 +139,7 @@ export const docsMessages = {
       items: {
         hookIntegration: 'Git hook integration for pre-commit workflows',
         multiProvider:
-          'Configurable provider support: Claude, Gemini, OpenCode, and Codex',
+          'Configurable provider support: Claude, Gemini, OpenCode, Codex, and Antigravity',
         projectConfig:
           'Project-level and global configuration via .guardian files',
         agentsMd:
@@ -161,7 +161,7 @@ export const docsMessages = {
       step2: {
         title: '2. AI evaluates the commit',
         description:
-          'When you run git commit, the CLI runs analysis using your preferred provider CLI (Claude, Gemini, OpenCode, or Codex).'
+          'When you run git commit, the CLI runs analysis using your preferred provider CLI (Claude, Gemini, OpenCode, Codex, or Antigravity).'
       },
       step3: {
         title: '3. Your workflow continues',
@@ -284,7 +284,7 @@ export const docsMessages = {
       description:
         'guardian setup guides you through three decisions so you do not need to remember multiple commands or flags during onboarding.',
       flow: {
-        choose: 'Choose the rules file name and provider: Claude, Gemini, OpenCode, or Codex.',
+        choose: 'Choose the rules file name and provider: Claude, Gemini, OpenCode, Codex, or Antigravity.',
         configure:
           'Generate .guardian and AGENTS.md, then decide whether Guardian should hook into pre-commit or commit-msg.',
         preview:
@@ -454,6 +454,8 @@ export const docsMessages = {
           'OpenCode: use opencode when you want Guardian to run through an OpenCode-compatible local workflow.',
         codex:
           'Codex: use the codex CLI when you want Guardian to run with Codex from your local terminal workflow.',
+        antigravity:
+          'Antigravity: use the antigravity CLI when your team runs reviews through an Antigravity-based local workflow.',
         modelRouting:
           'Provider values can be generic, like opencode, or fully qualified, like opencode:anthropic/claude-opus-4.'
       }

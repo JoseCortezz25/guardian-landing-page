@@ -89,7 +89,8 @@ export const docsLlmContent = {
       'Claude — CLI name: claude — install info: anthropic.com/claude-code',
       'Gemini — CLI name: gemini — install info: ai.google.dev/gemini-api/docs',
       'OpenCode — CLI name: opencode — install info: opencode.ai',
-      'Codex — CLI name: codex — install info: developers.openai.com/codex/quickstart'
+      'Codex — CLI name: codex — install info: developers.openai.com/codex/quickstart',
+      'Antigravity — CLI name: antigravity — install info: npmjs.com/package/antigravity-cli'
     ]),
     installation.providerCLIs.note,
     '',
@@ -221,6 +222,7 @@ export const docsLlmContent = {
       'PROVIDER="gemini"',
       'PROVIDER="opencode"',
       'PROVIDER="codex"',
+      'PROVIDER="antigravity"',
       'PROVIDER="opencode:anthropic/claude-opus-4"'
     ])
   ].join('\n'),
