@@ -557,31 +557,49 @@ export const docsMessages = {
       'A concise release history for the npm package, focused on the milestones that shaped Guardian from the first beta to the latest published build.',
     latest: {
       badge: 'Latest on npm',
-      version: '1.0.0-beta.5',
-      date: 'May 4, 2026',
+      version: '1.2.2',
+      date: 'May 25, 2026',
       summary:
-        'Introduces guardian setup, an interactive guided command that combines init and hook installation into a single flow. Build output migrated to dist/cli.mjs using tsup. Node.js minimum requirement raised to >= 22.'
+        'CLI now bundles React and Ink dependencies directly into the distribution, resolving compatibility issues with projects using React 18. Fixed spawn E2BIG error when processing large projects by routing prompts through stdin instead of CLI arguments.'
     },
     releases: {
       title: 'Release Timeline',
       items: {
-        beta5: {
-          version: '1.0.0-beta.5',
-          date: 'May 4, 2026',
+        v122: {
+          version: '1.2.2',
+          date: 'May 25, 2026',
           summary:
-            'Added guardian setup: an interactive 3-step flow that prompts for provider, rules file name, and hook type, then creates .guardian and AGENTS.md and runs a preview. Build switched from tsc to tsup — output is now dist/cli.mjs instead of dist/cli.js. Node.js minimum bumped from >= 18 to >= 22.'
+            'CLI now bundles React and Ink dependencies directly into the distribution, resolving compatibility issues with projects using React 18. Fixed spawn E2BIG error when processing large projects by routing prompts through stdin instead of CLI arguments.'
+        },
+        v121: {
+          version: '1.2.1',
+          date: 'May 23, 2026',
+          summary:
+            'Introduces .guardianignore file support using familiar .gitignore-style patterns to exclude files from reviews.'
+        },
+        v120: {
+          version: '1.2.0',
+          date: 'May 21, 2026',
+          summary:
+            "Adds Antigravity provider support, leveraging Google's Go-based terminal agent announced at Google I/O 2026."
+        },
+        v110: {
+          version: '1.1.0',
+          date: 'May 19, 2026',
+          summary:
+            'Introduces guardian setup interactive wizard combining configuration, installation, and initial review in a unified flow. Upgraded build tooling from TypeScript to tsup/esbuild for ESM compatibility.'
         },
         beta4: {
           version: '1.0.0-beta.4',
           date: 'May 4, 2026',
           summary:
-            'Refined the beta packaging flow immediately before the current latest release.'
+            'New guardian update command for automatic version checking. Version flag now supports both -v and -V syntax. Markdown file resolution improved for subdirectories.'
         },
         beta3: {
           version: '1.0.0-beta.3',
           date: 'May 4, 2026',
           summary:
-            'Continued stabilization work during the early May beta sequence.'
+            'Guardian-install and guardian-implement skills introduced. Enhanced markdown reference resolution for nested directories.'
         },
         stable: {
           version: '1.0.0',
